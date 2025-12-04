@@ -11,16 +11,25 @@ const config =
     typeof window !== 'undefined' && window.VUE_APP_CONFIG
         ? window.VUE_APP_CONFIG
         : {
-              FIREBASE_API_KEY: process.env.VUE_APP_FIREBASE_API_KEY,
-              FIREBASE_AUTH_DOMAIN: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
-              FIREBASE_PROJECT_ID: process.env.VUE_APP_FIREBASE_PROJECT_ID,
-              FIREBASE_STORAGE_BUCKET: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+              FIREBASE_API_KEY:
+                  process.env.VUE_APP_FIREBASE_API_KEY || 'dummy_key',
+              FIREBASE_AUTH_DOMAIN:
+                  process.env.VUE_APP_FIREBASE_AUTH_DOMAIN || 'dummy_domain',
+              FIREBASE_PROJECT_ID:
+                  process.env.VUE_APP_FIREBASE_PROJECT_ID || 'dummy_project_id',
+              FIREBASE_STORAGE_BUCKET:
+                  process.env.VUE_APP_FIREBASE_STORAGE_BUCKET ||
+                  'dummy_storage_bucket',
               FIREBASE_MESSAGING_SENDER_ID:
-                process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
-              FIREBASE_APP_ID: process.env.VUE_APP_FIREBASE_APP_ID,
+                  process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID ||
+                  'dummy_messaging_sender_id',
+              FIREBASE_APP_ID:
+                  process.env.VUE_APP_FIREBASE_APP_ID || 'dummy_app_id',
               FIREBASE_MEASUREMENT_ID:
-                process.env.VUE_APP_FIREBASE_MEASUREMENT_ID,
-              FIREBASE_DATABASE_URL: process.env.VUE_APP_FIREBASE_DATABASE_URL
+                  process.env.VUE_APP_FIREBASE_MEASUREMENT_ID ||
+                  'dummy_measurement_id',
+              FIREBASE_DATABASE_URL:
+                  process.env.VUE_APP_FIREBASE_DATABASE_URL || 'https://dummy.url'
           };
 
 const firebaseConfig = {
