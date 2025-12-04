@@ -40,6 +40,27 @@ docker-compose up
 ```
 The application is now configured at runtime, making the same Docker image reusable across different environments.
 
+**3. Running with Docker CLI:**
+If you prefer to use the Docker CLI directly, follow these steps:
+
+   **a. Log in to GitHub Container Registry (if not already logged in):**
+   ```bash
+   echo YOUR_PAT | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin
+   ```
+   Replace `YOUR_PAT` with your GitHub Personal Access Token (with `read:packages` scope) and `YOUR_GITHUB_USERNAME` with your GitHub username.
+
+   **b. Pull the Docker Image:**
+   ```bash
+   docker pull ghcr.io/wulukewu/shoppingwebsite:latest
+   ```
+
+   **c. Run the Docker Container:**
+   Ensure you have your `.env` file in your current directory, configured as described in the "Firebase Setup" section.
+   ```bash
+   docker run -d -p 8080:80 --env-file .env ghcr.io/wulukewu/shoppingwebsite:latest
+   ```
+   The application will be accessible at `http://localhost:8080`.
+
 ### GitHub Actions (CI/CD)
 This project includes GitHub Actions workflows for continuous integration and deployment. The workflows are set up to build a Docker image that is configured at runtime.
 
